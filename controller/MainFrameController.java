@@ -12,7 +12,7 @@ import view.MainFrame;
 
 /**
  *
- * @author lolo
+ * @author Bene Lorant
  */
 public class MainFrameController {
     MainFrame mf;

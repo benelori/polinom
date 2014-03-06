@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author lolo
+ * @author Bene Lorant
  */
 public class MainFrame {
     private JFrame frame;

@@ -10,7 +10,7 @@ import controller.MainFrameController;
 
 /**
  *
- * @author lolo
+ * @author Bene Lorant
  */
 public class Main {
     public static void main(String[] args) {
