@@ -34,7 +34,7 @@ public class MainFrame {
         /*
          * Creates instances of all the elements required for the GUI.
          */
-        
+
         // Creates frame instane.
         frame = new JFrame();
         // Creates instances of text fields for polynomials' input.
@@ -42,11 +42,11 @@ public class MainFrame {
         polinom2 = new JTextField("Initial2");
         // Creates instance of Add button for performing addition.
         addButton = new JButton("Add");
-        
+
         /*
          * Configures elements of the GUI.
          */
-        
+
         // Configures frame properties.
         frame.setSize(600, 600);
         frame.setLayout(null);
@@ -67,7 +67,7 @@ public class MainFrame {
     public JTextField getPolinom1() {
         return polinom1;
     }
-    
+
     public JTextField getPolinom2() {
         return polinom2;
     }
