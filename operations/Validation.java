@@ -1,6 +1,7 @@
 package operations;
 
 import entity.Monom;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,8 +35,11 @@ public class Validation {
      *   The polynomial from the text field.
      *
      * @return
+     *   Returns the list of monoms from the input polynomial.
      */
     public List<Monom> createMonom(String polinom) {
+        // Creates ArrayList instance of the list of monoms.
+        List<Monom> monomList = new ArrayList<Monom>();
         // Splits the polinom with the x^ regex separator.
         String[] monoms = polinom.split("x\\^");
         int[] numberList = new int[10];
@@ -50,12 +54,10 @@ public class Validation {
             }
         }
         numberList[listLength] = Integer.parseInt(monoms[monoms.length-1]);
-        for (int i = 0; i<numberList.length; i++) {
-            System.out.println(numberList[i]);
+        for (int i = 0; i<numberList.length; i= i+2) {
+            monomList.add(new Monom(numberList[i],numberList[i+1]));
         }
-
-
-        return null;
+        return monomList;
     }
 
     /**
