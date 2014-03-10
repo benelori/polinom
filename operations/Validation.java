@@ -42,7 +42,7 @@ public class Validation {
         List<Monom> monomList = new ArrayList<Monom>();
         // Splits the polinom with the x^ regex separator.
         String[] monoms = polinom.split("x\\^");
-        int[] numberList = new int[10];
+        int[] numberList = new int[(monoms.length-1)*2];
         int listLength = 0;
         numberList[listLength] = Integer.parseInt(monoms[0]);
         listLength++;
@@ -54,7 +54,7 @@ public class Validation {
             }
         }
         numberList[listLength] = Integer.parseInt(monoms[monoms.length-1]);
-        for (int i = 0; i<numberList.length; i= i+2) {
+        for (int i = 0; i<numberList.length; i+=2) {
             monomList.add(new Monom(numberList[i],numberList[i+1]));
         }
         return monomList;
