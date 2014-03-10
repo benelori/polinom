@@ -73,10 +73,15 @@ public class Validation {
      */
     public boolean isValid(String polinom) {
         // Splits string by 'x^' or '+' or '-' characters.
-        String[] monoms = polinom.split("x\\^|\\+|\\-");
-        for (int i = 0; i < monoms.length; i++) {
-            if (isInteger(monoms[i]) == false) {
-                return false;
+        if (!polinom.contains("x^")) {
+            return false;
+        }
+        else {
+            String[] monoms = polinom.split("x\\^|\\+|\\-");
+            for (int i = 0; i < monoms.length; i++) {
+                if (isInteger(monoms[i]) == false) {
+                    return false;
+                }
             }
         }
         return true;
