@@ -72,16 +72,44 @@ public class Validation {
      *   Returns true or false.
      */
     public boolean isValid(String polinom) {
-        // Splits string by 'x^' or '+' or '-' characters.
+        // Checks for the existence of the 'x^' substring, because it is
+        // necessary for the input, per format specifications.
         if (!polinom.contains("x^")) {
             return false;
         }
         else {
+            // Splits string by 'x^' or '+' or '-' characters.
             String[] monoms = polinom.split("x\\^|\\+|\\-");
-            for (int i = 0; i < monoms.length; i++) {
-                if (isInteger(monoms[i]) == false) {
-                    return false;
+            // Checks if polynomial is in correct format, with a
+            // '1 coefficent 1 exponent' pair.
+            if (monoms.length%2 == 0) {
+                // Array that is used to check uniqueness of exponents.
+                int unique[] = new int[monoms.length/2];
+                int uniqueIterator = 0;
+                for (int i = 0; i < monoms.length; i++) {
+                    // If the elements of the monoms array are integer, then the
+                    // input polynomial has the correct format.
+                    if (isInteger(monoms[i]) == false) {
+                        return false;
+                    }
+                    else if (i%2 != 0) {
+                        // Checks the sign of the exponent.
+                        if (Integer.parseInt(monoms[i]) > 0) {
+                            unique[uniqueIterator] = Integer.parseInt(monoms[i]);
+                            uniqueIterator++;
+                        }
+                        else {
+                            return false;
+                        }
+                        // Checks the uniqueness of the exponents.
+                        if (checkUnique(unique) == false) {
+                            return false;
+                        }
+                    }
                 }
+            }
+            else {
+                return false;
             }
         }
         return true;
@@ -127,5 +155,23 @@ public class Validation {
         }
         String[] numbers = {exp, coef};
         return numbers ;
+    }
+
+    /**
+     * Helper function to check for the uniqueness of an introduced exponent.
+     *
+     * @param unique
+     *   Array of coefficients from the input polynomial.
+     *
+     * @return
+     *   Returns boolean value on uniqueness of the exponent parameter.
+     */
+    private boolean checkUnique(int[] unique) {
+        for (int i = 0; i < unique.length - 1; i++) {
+            if (unique[i] == unique[unique.length - 1]){
+                return false;
+            }
+        }
+        return true;
     }
 }
