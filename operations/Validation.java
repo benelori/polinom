@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class performs the validation and parsing of the input Strings.
+ * It checks if the input Strings are in the format required for polynomials
+ * and if they are then it creates the monom list from the exponents and
+ * coefficients.
  *
  * @author Bene Lorant
  */
@@ -62,8 +66,10 @@ public class Validation {
 
     /**
      * Validation function for the input polynomials.
-     *   Splits up the polynomial by x^, + and - separators (if existent), and
-     *   performs integer check on the split results.
+     *   Splits up the polynomial by x^, + and - separators (if existent),
+     *   performs integer check on the split results and checks if split results
+     *   are positive and if they correspond to a coefficient-exponent pair.
+     *   We also check the uniqueness of the exponents.
      *
      * @param polinom
      *   The polynomial from the text field.
