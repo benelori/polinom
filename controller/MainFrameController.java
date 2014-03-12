@@ -62,6 +62,10 @@ public class MainFrameController {
                 // Creates new polinom instance.
                 if (e.getSource() == mf.getAddButton()) {
                     String result = operation.add();
+                    System.out.println(result);
+                } else if (e.getSource() == mf.getSubButton()) {
+                    String result = operation.substract();
+                    System.out.println(result);
                 }
             }
         }

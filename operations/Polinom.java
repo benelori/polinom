@@ -62,7 +62,35 @@ public class Polinom implements Operations{
      */
     @Override
     public String substract() {
-        return null;
+        result = new ArrayList<Monom>();
+        Iterator<Monom> it1 = polinom1.iterator();
+        Iterator<Monom> it2 = polinom2.iterator();
+        while (it1.hasNext()) {
+            Monom monom1 = it1.next();
+            while (it2.hasNext()) {
+                Monom monom2 = it2.next();
+                if (monom2.getExponent() == monom1.getExponent()) {
+                    int newCoef = monom1.getCoeficcient() - monom2.getCoeficcient();
+                    result.add(new Monom(newCoef,monom1.getExponent()));
+                    it1.remove();
+                    it2.remove();
+                }
+            }
+            it2 = polinom2.iterator();
+        }
+        if (!polinom1.isEmpty()) {
+            for (Monom monom : polinom1) {
+                result.add(monom);
+            }
+        }
+        if (!polinom2.isEmpty()) {
+            for (Monom monom : polinom2) {
+                int newCoef = monom.getCoeficcient();
+                monom.setCoeficcient(-newCoef);
+                result.add(monom);
+            }
+        }
+        return resultString(result);
     }
 
     /**

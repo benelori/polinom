@@ -27,7 +27,7 @@ public class MainFrame {
     /**
      * Declares buttons that perform the operations.
      */
-    private JButton addButton;
+    private JButton addButton, subButton;
     
     /**
      * Declares example Labels that will appear on the frame with instructions
@@ -60,10 +60,11 @@ public class MainFrame {
         // Creates frame instance.
         frame = new JFrame();
         // Creates instances of text fields for polynomials' input.
-        polinom1 = new JTextField("Initial");
-        polinom2 = new JTextField("Initial2");
+        polinom1 = new JTextField("2x^1+3x^4");
+        polinom2 = new JTextField("2x^2-4x^1+2x^4+8x^8");
         // Creates instance of Add button for performing addition.
         addButton = new JButton("Add");
+        subButton = new JButton("Substract");
         // Creates instance of example Label.
         example1 = new JLabel("Please use the following format for polynomial input:");
         example2 = new JLabel("<coefficent>x^<exponent> <operation> <coefficent>x^<exponent>");
@@ -88,6 +89,10 @@ public class MainFrame {
         addButton.setBounds(50, 350, 100, 50);
         frame.add(addButton);
         addButton.addActionListener(mfc.getActionListener());
+        // Configures Add button and adds action listener.
+        subButton.setBounds(50, 450, 100, 50);
+        frame.add(subButton);
+        subButton.addActionListener(mfc.getActionListener());
         // Configures example Labels.
         example1.setBounds(50, 150, 800, 30);
         frame.add(example1);
@@ -107,5 +112,9 @@ public class MainFrame {
 
     public JButton getAddButton() {
         return addButton;
+    }
+
+    public JButton getSubButton() {
+        return subButton;
     }
 }
