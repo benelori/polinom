@@ -27,8 +27,8 @@ public class MainFrame {
     /**
      * Declares buttons that perform the operations.
      */
-    private JButton addButton, subButton;
-    
+    private JButton addButton, subButton, multiplyButton;
+
     /**
      * Declares example Labels that will appear on the frame with instructions
      * for polynomial input format.
@@ -60,11 +60,12 @@ public class MainFrame {
         // Creates frame instance.
         frame = new JFrame();
         // Creates instances of text fields for polynomials' input.
-        polinom1 = new JTextField("2x^1+3x^4");
-        polinom2 = new JTextField("2x^2-4x^1+2x^4+8x^8");
+        polinom1 = new JTextField("1x^1+1x^2");
+        polinom2 = new JTextField("1x^1+1x^2");
         // Creates instance of Add button for performing addition.
         addButton = new JButton("Add");
         subButton = new JButton("Substract");
+        multiplyButton = new JButton("Multiply");
         // Creates instance of example Label.
         example1 = new JLabel("Please use the following format for polynomial input:");
         example2 = new JLabel("<coefficent>x^<exponent> <operation> <coefficent>x^<exponent>");
@@ -86,13 +87,17 @@ public class MainFrame {
         polinom2.setBounds(50, 100, 800, 30);
         frame.add(polinom2);
         // Configures Add button and adds action listener.
-        addButton.setBounds(50, 350, 100, 50);
+        addButton.setBounds(50, 150, 100, 50);
         frame.add(addButton);
         addButton.addActionListener(mfc.getActionListener());
         // Configures Add button and adds action listener.
-        subButton.setBounds(50, 450, 100, 50);
+        subButton.setBounds(50, 250, 100, 50);
         frame.add(subButton);
         subButton.addActionListener(mfc.getActionListener());
+        // Configures Add button and adds action listener.
+        multiplyButton.setBounds(50, 350, 100, 50);
+        frame.add(multiplyButton);
+        multiplyButton.addActionListener(mfc.getActionListener());
         // Configures example Labels.
         example1.setBounds(50, 150, 800, 30);
         frame.add(example1);
@@ -116,5 +121,9 @@ public class MainFrame {
 
     public JButton getSubButton() {
         return subButton;
+    }
+
+    public JButton getMultiplyButton() {
+        return multiplyButton;
     }
 }

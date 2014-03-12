@@ -99,6 +99,22 @@ public class Polinom implements Operations{
      */
     @Override
     public String multiply() {
+        Iterator<Monom> it1 = polinom1.iterator();
+        Iterator<Monom> it2 = polinom2.iterator();
+        result = new ArrayList<Monom>();
+        int newCoef =0 , newExp;
+        List <Monom> resultFinal = new ArrayList<Monom>();
+        while (it1.hasNext()) {
+            Monom monom1 = it1.next();
+            while (it2.hasNext()) {
+                Monom monom2 = it2.next();
+                newCoef = monom1.getCoeficcient() * monom2.getCoeficcient();
+                newExp = monom1.getExponent() + monom2.getExponent();
+                result.add(new Monom(newCoef,newExp));
+            }
+            it2 = polinom2.iterator();
+        }
+        System.out.println(result);
         return null;
     }
 

@@ -66,6 +66,9 @@ public class MainFrameController {
                 } else if (e.getSource() == mf.getSubButton()) {
                     String result = operation.substract();
                     System.out.println(result);
+                } else if (e.getSource() == mf.getMultiplyButton()) {
+                    String result = operation.multiply();
+                    //System.out.println(result);
                 }
             }
         }
