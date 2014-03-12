@@ -27,7 +27,7 @@ public class MainFrame {
     /**
      * Declares buttons that perform the operations.
      */
-    private JButton addButton, subButton, multiplyButton;
+    private JButton addButton, subButton, multiplyButton, derivateButton;
 
     /**
      * Declares example Labels that will appear on the frame with instructions
@@ -66,6 +66,7 @@ public class MainFrame {
         addButton = new JButton("Add");
         subButton = new JButton("Substract");
         multiplyButton = new JButton("Multiply");
+        derivateButton = new JButton("Derivate");
         // Creates instance of example Label.
         example1 = new JLabel("Please use the following format for polynomial input:");
         example2 = new JLabel("<coefficent>x^<exponent> <operation> <coefficent>x^<exponent>");
@@ -90,14 +91,18 @@ public class MainFrame {
         addButton.setBounds(50, 150, 100, 50);
         frame.add(addButton);
         addButton.addActionListener(mfc.getActionListener());
-        // Configures Add button and adds action listener.
+        // Configures Substract button and adds action listener.
         subButton.setBounds(50, 250, 100, 50);
         frame.add(subButton);
         subButton.addActionListener(mfc.getActionListener());
-        // Configures Add button and adds action listener.
+        // Configures Mulitply button and adds action listener.
         multiplyButton.setBounds(50, 350, 100, 50);
         frame.add(multiplyButton);
         multiplyButton.addActionListener(mfc.getActionListener());
+        // Configures Mulitply button and adds action listener.
+        derivateButton.setBounds(50, 450, 100, 50);
+        frame.add(derivateButton);
+        derivateButton.addActionListener(mfc.getActionListener());
         // Configures example Labels.
         example1.setBounds(50, 150, 800, 30);
         frame.add(example1);
@@ -125,5 +130,9 @@ public class MainFrame {
 
     public JButton getMultiplyButton() {
         return multiplyButton;
+    }
+
+    public JButton getDerivateButton() {
+        return derivateButton;
     }
 }

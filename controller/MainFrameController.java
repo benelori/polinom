@@ -69,6 +69,9 @@ public class MainFrameController {
                 } else if (e.getSource() == mf.getMultiplyButton()) {
                     String result = operation.multiply();
                     //System.out.println(result);
+                } else if (e.getSource() == mf.getDerivateButton()) {
+                    String result = operation.derivation(list1);
+                    //System.out.println(result);
                 }
             }
         }

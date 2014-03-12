@@ -125,6 +125,14 @@ public class Polinom implements Operations{
      */
     @Override
     public String derivation(List<Monom> polinom) {
+        Monom newMonom = new Monom(0,0);
+        List<Monom> result = new ArrayList<>();
+        for (Monom monom : polinom) {
+            newMonom.setCoeficcient(monom.getCoeficcient() * monom.getExponent());
+            newMonom.setExponent(monom.getExponent() - 1);
+            result.add(newMonom);
+        }
+        System.out.println(result);
         return null;
     }
 
