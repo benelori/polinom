@@ -58,10 +58,11 @@ public class MainFrameController {
                 // Creates Monom list object after passing validations.
                 List<Monom> list1 = v.createMonom(polinom1);
                 List<Monom> list2 = v.createMonom(polinom2);
-            }
-            // Creates new polinom instance.
-            //Operations pol1 = new Polinom(list1,list2);
-            if (e.getSource() == mf.getAddButton()) {
+                Operations operation = new Polinom(list1,list2);
+                // Creates new polinom instance.
+                if (e.getSource() == mf.getAddButton()) {
+                    String result = operation.add();
+                }
             }
         }
     };

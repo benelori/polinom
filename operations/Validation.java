@@ -85,12 +85,25 @@ public class Validation {
         }
         else {
             // Splits string by 'x^' or '+' or '-' characters.
-            String[] monoms = polinom.split("x\\^|\\+|\\-");
+            String[] monoms;
+            String[] monom = polinom.split("x\\^|\\+|\\-");
+            if (monom[0].equals("")) {
+                monoms = new String[monom.length - 1];
+                for (int i = 1; i < monom.length; i++) {
+                    monoms[i-1] = monom[i];
+                }
+            }
+            else {
+                monoms = polinom.split("x\\^|\\+|\\-");
+            }
             // Checks if polynomial is in correct format, with a
             // '1 coefficent 1 exponent' pair.
             if (monoms.length%2 == 0) {
                 // Array that is used to check uniqueness of exponents.
                 int unique[] = new int[monoms.length/2];
+                for (int i = 0; i < unique.length; i++) {
+                    unique[i] = -(i+1);
+                }
                 int uniqueIterator = 0;
                 for (int i = 0; i < monoms.length; i++) {
                     // If the elements of the monoms array are integer, then the
